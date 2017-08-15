@@ -9,5 +9,6 @@ namespace DataStructures.LinkedList
         void Remove(T element);
         bool IsEmpty();
         void PrettyPrint();
+        T Head();
     }
 }

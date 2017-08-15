@@ -89,6 +89,7 @@ namespace DataStructures
             Console.WriteLine("--------------------------------");
             linkedList.Remove(4);
             linkedList.PrettyPrint();
+
             Console.WriteLine();
             Console.WriteLine("--------------------------------");
 

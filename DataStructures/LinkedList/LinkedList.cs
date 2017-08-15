@@ -34,21 +34,19 @@ namespace DataStructures.LinkedList
             newHead.Next = head;
             head = newHead;
         }
-
-
-        //BUG DELETES THE ELEMENTS WHILE IT IS PRINTING 
-        //Pass by value ?
+        
         public void PrettyPrint()
         {
-            var current = head;
-            if (current == null)
+            if (this.IsEmpty())
                 Console.WriteLine("The List is empty.");
 
+            var current = head;
             Console.Write(string.Format("{0} -> ", current.Value));
+
             while (current.Next != null)
             {
                 Console.Write(string.Format("{0} -> ", current.Next.Value));
-                current.Next = current.Next.Next;
+                current = current.Next;
             }
         }
 
