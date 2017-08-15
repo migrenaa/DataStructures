@@ -52,6 +52,29 @@ namespace DataStructures.LinkedList
             }
         }
 
+        public void RemoveAt(int position)
+        {
+            if (head == null)
+                return;
+
+            if (position == 0)
+            {
+                head = head.Next;
+                return;
+            }
+
+            var current = head;
+            for (int currentPosition = 0; currentPosition < position; currentPosition++)
+            {
+                if (current.Next == null)
+                    return;
+
+                current = current.Next;
+            }
+            current.Next = current.Next.Next;
+        }
+
+
 
         public void Remove(T element)
         {
