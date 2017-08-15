@@ -1,8 +1,8 @@
-﻿
-namespace DataStructures
+﻿namespace DataStructures
 {
     using DataStructures.Graph;
     using DataStructures.Queue;
+    using DataStructures.Stack;
     using System;
     using System.Collections.Generic;
 
@@ -10,9 +10,27 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
+            var queue = new Queue<int>();
+            var queuell = new QueueLL<int>();
+            Console.WriteLine("Test queue implementation with array");
+            TestQueue(queue);
+            Console.WriteLine();
+            Console.WriteLine("Test queue implementation with linked list");
+            TestQueue(queuell);
 
-            ////TEST QUEUE
-            Queue<int> queue = new Queue<int>();
+            Console.WriteLine();
+            var stack = new Stack.Stack<int>();
+            var stackll = new StackLL<int>();
+            Console.WriteLine("Test stack implementation with array");
+            TestStack(stack);
+            Console.WriteLine();
+            Console.WriteLine("Test stack implementation with linked list");
+            TestStack(stackll);
+
+        }
+
+        static void TestQueue(IQueue<int> queue)
+        {
             Console.WriteLine("should be true:{0}", queue.IsEmpty());
             queue.Enqueue(1);
             queue.Enqueue(2);
@@ -42,9 +60,10 @@ namespace DataStructures
             Console.WriteLine("should be true:{0}", queuell.IsEmpty());
             queuell.Dequeue();
 
+        }
 
-            ////TEST STACK
-            DataStructures.Stack.Stack<int> stack = new DataStructures.Stack.Stack<int>();
+        static void TestStack(IStack<int> stack)
+        {
             Console.WriteLine("should be true:{0}", stack.IsEmpty());
 
             stack.Push(1);
@@ -76,8 +95,10 @@ namespace DataStructures
 
             stackll.Clear();
             Console.WriteLine("should be true:{0}", stackll.IsEmpty());
+        }
 
-            ////TEST LINKED LIST
+        static void TestLinkedList()
+        {
             DataStructures.LinkedList.LinkedList<int> linkedList = new DataStructures.LinkedList.LinkedList<int>();
             linkedList.Append(1);
             linkedList.Append(2);
@@ -89,29 +110,30 @@ namespace DataStructures
             Console.WriteLine("--------------------------------");
             linkedList.Remove(4);
             linkedList.PrettyPrint();
-
             Console.WriteLine();
             Console.WriteLine("--------------------------------");
-
-
-            //// TEST GRAPH(oriented, without costs)
-            //Graph<int> graph = new Graph<int>();
-            //var node0 = new Node<int>(0);
-            //var node2 = new Node<int>(2);
-            //var node3 = new Node<int>(3);
-            //var node4 = new Node<int>(4);
-            //var node5 = new Node<int>(5);
-            //node0.AddEdge(node2);
-            //var neighbors = new List<Node<int>> { node0, node2, node3 };
-            //var newNode = graph.AddNode(1, neighbors);
-            //Console.WriteLine("-------BFS-------");
-            //graph.BFS(newNode);
-            //Console.WriteLine("-----------------");
-            //Console.WriteLine(graph.ToString());
-            //graph.RemoveNode(newNode);
-            //Console.WriteLine("-----------------");
-            //var graphToString = graph.ToString();
-            //Console.WriteLine(graphToString == "" ? "The Graph is empty" : graphToString);
         }
+
+        static void TestGraph()
+        {
+            Graph<int> graph = new Graph<int>();
+            var node0 = new Node<int>(0);
+            var node2 = new Node<int>(2);
+            var node3 = new Node<int>(3);
+            var node4 = new Node<int>(4);
+            var node5 = new Node<int>(5);
+            node0.AddEdge(node2);
+            var neighbors = new List<Node<int>> { node0, node2, node3 };
+            var newNode = graph.AddNode(1, neighbors);
+            Console.WriteLine("-------BFS-------");
+            graph.BFS(newNode);
+            Console.WriteLine("-----------------");
+            Console.WriteLine(graph.ToString());
+            graph.RemoveNode(newNode);
+            Console.WriteLine("-----------------");
+            var graphToString = graph.ToString();
+            Console.WriteLine(graphToString == "" ? "The Graph is empty" : graphToString);
+        }
+
     }
 }
