@@ -1,0 +1,6 @@
+D:\Centroida\DataStructures\DataStructures\bin\Debug\DataStructures.exe.config
+D:\Centroida\DataStructures\DataStructures\bin\Debug\DataStructures.exe
+D:\Centroida\DataStructures\DataStructures\bin\Debug\DataStructures.pdb
+D:\Centroida\DataStructures\DataStructures\obj\Debug\DataStructures.csprojResolveAssemblyReference.cache
+D:\Centroida\DataStructures\DataStructures\obj\Debug\DataStructures.exe
+D:\Centroida\DataStructures\DataStructures\obj\Debug\DataStructures.pdb
