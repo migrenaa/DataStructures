@@ -5,18 +5,27 @@ using System;
 
 namespace DataStructures
 {
+
+    /// <summary>
+    /// Representation of queue using List
+    /// </summary>
     public class Queue<T> : IQueue<T>
     {
         private List<T> _elements;
-
-
+        
         public Queue(List<T> elements = null)
         {
             this._elements = elements == null ? new List<T>() : elements;
         }
-        public bool IsEmpty()
+
+        public T Peek()
         {
-            return this._elements.Count == 0;
+            return this._elements.FirstOrDefault();
+        }
+
+        public void Enqueue(T element)
+        {
+            this._elements.Add(element);
         }
 
         public T Dequeue()
@@ -25,19 +34,9 @@ namespace DataStructures
             {
                 return default(T);
             }
-            var element = this.Top();
+            var element = this.Peek();
             this._elements.RemoveAt(0);
             return element;
-        }
-
-        public void Enqueue(T element)
-        {
-            this._elements.Add(element);
-        }
-
-        public T Top()
-        {
-            return this._elements.FirstOrDefault();
         }
 
         public void Clear()
@@ -47,5 +46,11 @@ namespace DataStructures
                 this.Dequeue();
             }
         }
+
+        public bool IsEmpty()
+        {
+            return this._elements.Count == 0;
+        }
+
     }
 }

@@ -26,7 +26,6 @@
             Console.WriteLine();
             Console.WriteLine("Test stack implementation with linked list");
             TestStack(stackll);
-
         }
 
         static void TestQueue(IQueue<int> queue)
@@ -37,9 +36,9 @@
             queue.Enqueue(3);
 
             Console.WriteLine("should be false:{0}", queue.IsEmpty());
-            Console.WriteLine("should be 1:{0}", queue.Top());
+            Console.WriteLine("should be 1:{0}", queue.Peek());
             Console.WriteLine("should be 1:{0}", queue.Dequeue());
-            Console.WriteLine("should be 2:{0}", queue.Top());
+            Console.WriteLine("should be 2:{0}", queue.Peek());
 
             queue.Clear();
             Console.WriteLine("should be true:{0}", queue.IsEmpty());
@@ -52,9 +51,9 @@
             queuell.Enqueue(3);
 
             Console.WriteLine("should be false:{0}", queuell.IsEmpty());
-            Console.WriteLine("should be 1:{0}", queuell.Top());
+            Console.WriteLine("should be 1:{0}", queuell.Peek());
             Console.WriteLine("should be 1:{0}", queuell.Dequeue());
-            Console.WriteLine("should be 2:{0}", queuell.Top());
+            Console.WriteLine("should be 2:{0}", queuell.Peek());
 
             queuell.Clear();
             Console.WriteLine("should be true:{0}", queuell.IsEmpty());
@@ -110,8 +109,10 @@
             Console.WriteLine("--------------------------------");
             linkedList.Remove(4);
             linkedList.PrettyPrint();
+            linkedList.RemoveAt(2);
             Console.WriteLine();
             Console.WriteLine("--------------------------------");
+            linkedList.PrettyPrint();
         }
 
         static void TestGraph()

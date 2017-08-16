@@ -39,7 +39,7 @@ namespace DataStructures.Queue
             return linkedList.IsEmpty();
         }
 
-        public T Top()
+        public T Peek()
         {
             return linkedList.Head();
         }
