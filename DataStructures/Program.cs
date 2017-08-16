@@ -11,7 +11,22 @@
     {
         static void Main(string[] args)
         {
-            TestTree();
+            TestHashTable();
+        }
+
+        static void TestHashTable()
+        {
+            HashTable.HashTable<string, string> hash = new HashTable.HashTable<string, string>(20);
+
+            hash.Add("1", "item 1");
+            hash.Add("2", "item 2");
+            hash.Add("dsfdsdsd", "sadsadsadsad");
+
+            string one = hash.Find("1");
+            string two = hash.Find("2");
+            string dsfdsdsd = hash.Find("dsfdsdsd");
+            hash.Remove("1");
+            Console.ReadLine();
         }
         static void TestTree()
         {
@@ -104,6 +119,7 @@
             linkedList.Append(4);
             linkedList.Append(5);
             linkedList.PrettyPrint();
+            Console.WriteLine(linkedList.Size());
             linkedList.Prepend(0);
             linkedList.PrettyPrint();
             linkedList.Remove(4);

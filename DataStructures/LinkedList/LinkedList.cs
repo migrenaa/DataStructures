@@ -170,6 +170,22 @@ namespace DataStructures.LinkedList
             }
             return current.Next.Value;
         }
+
+        public int Size()
+        {
+            int size = 0;
+            var current = head;
+            if (current == null)
+                return 0;
+
+            while (current.Next != null)
+            {
+                size++;
+                current = current.Next;
+            }
+            return size;
+
+        }
         
     }
 }

@@ -45,6 +45,7 @@
     <Compile Include="Graph\Graph.cs" />
     <Compile Include="Graph\IGraph.cs" />
     <Compile Include="Graph\Node.cs" />
+    <Compile Include="HashTable\HashTable.cs" />
     <Compile Include="LinkedList\ILinkedList.cs" />
     <Compile Include="LinkedList\LinkedList.cs" />
     <Compile Include="LinkedList\Node.cs" />
