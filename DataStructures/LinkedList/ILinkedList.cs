@@ -37,5 +37,6 @@ namespace DataStructures.LinkedList
         /// </summary>
         /// <returns>Type T -> the value</returns>
         T Head();
+        T GetElement(int position);
     }
 }

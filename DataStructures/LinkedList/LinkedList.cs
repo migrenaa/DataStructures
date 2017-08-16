@@ -7,13 +7,13 @@ namespace DataStructures.LinkedList
     /// <summary>
     /// Implementation for ILinkedList interface 
     /// </summary>
-    
+
     public class LinkedList<T> : ILinkedList<T>
     {
         //the head of the linked list
         private Node<T> head;
 
-        public LinkedList()
+        public LinkedList(Node<T> node = null)
         {
             head = null;
         }
@@ -141,5 +141,35 @@ namespace DataStructures.LinkedList
 
             return this.head.Value;
         }
+
+        public T GetElement(int position)
+        {
+            //if the list is empty there is nothing to remove 
+            if (head == null)
+                return default(T);
+
+            //if the position is 0 we want to delete the head 
+            //we are changing the head to be the next one
+            if (position == 0)
+            {
+                //head.Value = default(T);
+                head = head.Next;
+                return default(T);
+            }
+
+            var current = head;
+
+            //iterating to the position of the element that we want to remove
+            //we are iterating through the 'next' of the current, this is why the loop has last value of position - 1
+            for (int currentPosition = 1; currentPosition < position - 1; currentPosition++)
+            {
+                if (current.Next == null)
+                    return default(T);
+
+                current = current.Next;
+            }
+            return current.Next.Value;
+        }
+        
     }
 }

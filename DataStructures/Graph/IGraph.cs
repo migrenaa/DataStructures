@@ -8,6 +8,7 @@ namespace DataStructures.Graph
         Node<T> AddNode(T value, List<Node<T>> neighbours = null);
         void RemoveNode(Node<T> node);
         void BFS(Node<T> root);
+        void DFS(Node<T> root);
 
     }
 }

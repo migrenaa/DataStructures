@@ -3,6 +3,7 @@
     using DataStructures.Graph;
     using DataStructures.Queue;
     using DataStructures.Stack;
+    using DataStructures.Tree;
     using System;
     using System.Collections.Generic;
 
@@ -10,31 +11,18 @@
     {
         static void Main(string[] args)
         {
-
-            //test linked list
-            Console.WriteLine("Test linked list\n");
-            TestLinkedList();
-            Console.WriteLine();
-
-            //test queue
-            var queue = new Queue<int>();
-            var queuell = new QueueLL<int>();
-            Console.WriteLine("Test queue implementation with array\n");
-            TestQueue(queue);
-
-            Console.WriteLine("Test queue implementation with linked list\n");
-            TestQueue(queuell);
-
-            //test stack
-            Console.WriteLine();
-            var stack = new Stack.Stack<int>();
-            var stackll = new StackLL<int>();
-            Console.WriteLine("Test stack implementation with array\n");
-            TestStack(stack);
-
-            Console.WriteLine("Test stack implementation with linked list\n");
-            TestStack(stackll);
-
+            TestTree();
+        }
+        static void TestTree()
+        {
+            Tree<int> tree = new Tree<int>(5, null, null);
+            tree.Insert(tree.GetRootNode(), 1);
+            tree.Insert(tree.GetRootNode(), 10);
+            tree.Insert(tree.GetRootNode(), 3);
+            tree.Insert(tree.GetRootNode(), 8);
+            tree.Insert(tree.GetRootNode(), 9);
+            tree.Insert(tree.GetRootNode(), 0);
+            tree.Print();
         }
 
         static void TestQueue(IQueue<int> queue)
@@ -126,13 +114,13 @@
         static void TestGraph()
         {
             Graph<int> graph = new Graph<int>();
-            var node0 = new Node<int>(0);
-            var node2 = new Node<int>(2);
-            var node3 = new Node<int>(3);
-            var node4 = new Node<int>(4);
-            var node5 = new Node<int>(5);
+            var node0 = new Graph.Node<int>(0);
+            var node2 = new Graph.Node<int>(2);
+            var node3 = new Graph.Node<int>(3);
+            var node4 = new Graph.Node<int>(4);
+            var node5 = new Graph.Node<int>(5);
             node0.AddEdge(node2);
-            var neighbors = new List<Node<int>> { node0, node2, node3 };
+            var neighbors = new List<Graph.Node<int>> { node0, node2, node3 };
             var newNode = graph.AddNode(1, neighbors);
             Console.WriteLine("-------BFS-------");
             graph.BFS(newNode);

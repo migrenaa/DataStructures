@@ -7,17 +7,21 @@ namespace DataStructures.Graph
 {
     public class Graph<T> : IGraph<T>
     {
-        private List<Node<T>> nodes;
+        private DataStructures.LinkedList.LinkedList<Node<T>> nodes;
 
         public Graph()
         {
-            nodes = new List<Node<T>>();
+            nodes = new DataStructures.LinkedList.LinkedList<Node<T>>();
         }
 
         public Node<T> AddNode(T value, List<Node<T>> neighbours = null)
         {
             var newNode = new Node<T>(value, neighbours);
-            this.nodes.Add(newNode);
+            foreach (var neighbour in neighbours)
+            {
+                neighbour.AddEdge(newNode);
+            }
+            this.nodes.Append(newNode);
             return newNode;
         }
 
@@ -28,7 +32,7 @@ namespace DataStructures.Graph
 
         public void BFS(Node<T> root)
         {
-            Queue<Node<T>> queue = new Queue<Node<T>>();
+            DataStructures.Queue.Queue<Node<T>> queue = new DataStructures.Queue.Queue<Node<T>>();
             queue.Enqueue(root);
             while (!queue.IsEmpty())
             {
@@ -75,9 +79,12 @@ namespace DataStructures.Graph
         public override string ToString()
         {
             var stringBuilder = new StringBuilder();
-            foreach (var node in nodes)
+            int i = 1;
+            var current = this.nodes.GetElement(0);
+            while (!EqualityComparer<T>.Default.Equals(current.Value, default(T)))
             {
-                stringBuilder.Append(node.ToString());
+                stringBuilder.Append(this.nodes.GetElement(i).ToString());
+                i++;
             }
             return stringBuilder.ToString();
         }

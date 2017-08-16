@@ -1,4 +1,7 @@
 ﻿
+using System;
+using System.Collections.Generic;
+
 namespace DataStructures.LinkedList
 {
     public class Node<T>
@@ -11,5 +14,6 @@ namespace DataStructures.LinkedList
             this.Value = value;
             this.Next = next;
         }
+        
     }
 }

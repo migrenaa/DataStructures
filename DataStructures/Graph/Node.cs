@@ -4,7 +4,6 @@ using System.Text;
 
 namespace DataStructures.Graph
 {
-    //Oriented without costs
     public class Node<T>
     {
         public List<Node<T>> Neighbors { get; set; }
