@@ -5,11 +5,11 @@ namespace DataStructures.Tree
     using System;
     using System.Collections.Generic;
 
-    public class Tree<T> : ITree<T>
+    public class BinarySearchTree<T> : IBinarySearchTree<T>
     {
         private Tree.Node<T> root;
 
-        public Tree(T _root, Tree.Node<T> left, Tree.Node<T> right)
+        public BinarySearchTree(T _root, Tree.Node<T> left, Tree.Node<T> right)
         {
             this.root = new Tree.Node<T>(_root, left, right);
         }
@@ -35,6 +35,21 @@ namespace DataStructures.Tree
             return root;
         }
         
+        public Node<T> Search(Node<T> _root, T value)
+        {
+            if (_root == null)
+                return null;
+
+            var comparerRes = Comparer<T>.Default.Compare(_root.data, value);
+            if (comparerRes == 0)
+                return _root;
+            else if (comparerRes > 0)
+                return Search(_root.left, value);
+            else
+                return Search(_root.right, value);
+        }
+
+
         public Node<T> GetRootNode()
         {
             return this.root;

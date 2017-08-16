@@ -15,7 +15,7 @@
         }
         static void TestTree()
         {
-            Tree<int> tree = new Tree<int>(5, null, null);
+            BinarySearchTree<int> tree = new BinarySearchTree<int>(5, null, null);
             tree.Insert(tree.GetRootNode(), 1);
             tree.Insert(tree.GetRootNode(), 10);
             tree.Insert(tree.GetRootNode(), 3);
@@ -23,6 +23,7 @@
             tree.Insert(tree.GetRootNode(), 9);
             tree.Insert(tree.GetRootNode(), 0);
             tree.Print();
+            Console.WriteLine(tree.Search(tree.GetRootNode(), 9).data);
         }
 
         static void TestQueue(IQueue<int> queue)

@@ -56,9 +56,9 @@
     <Compile Include="Stack\IStack.cs" />
     <Compile Include="Stack\Stack.cs" />
     <Compile Include="Stack\StackLL.cs" />
-    <Compile Include="Tree\ITree.cs" />
+    <Compile Include="Tree\IBinarySearchTree.cs" />
     <Compile Include="Tree\Node.cs" />
-    <Compile Include="Tree\Tree.cs" />
+    <Compile Include="Tree\BinarySearchTree.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
