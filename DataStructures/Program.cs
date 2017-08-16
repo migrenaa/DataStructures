@@ -10,23 +10,31 @@
     {
         static void Main(string[] args)
         {
-            //var queue = new Queue<int>();
-            //var queuell = new QueueLL<int>();
-            //Console.WriteLine("Test queue implementation with array");
-            //TestQueue(queue);
-            //Console.WriteLine();
-            //Console.WriteLine("Test queue implementation with linked list");
-            //TestQueue(queuell);
 
-            //Console.WriteLine();
-            //var stack = new Stack.Stack<int>();
-            //var stackll = new StackLL<int>();
-            //Console.WriteLine("Test stack implementation with array");
-            //TestStack(stack);
-            //Console.WriteLine();
-            //Console.WriteLine("Test stack implementation with linked list");
-            //TestStack(stackll);
+            //test linked list
+            Console.WriteLine("Test linked list\n");
             TestLinkedList();
+            Console.WriteLine();
+
+            //test queue
+            var queue = new Queue<int>();
+            var queuell = new QueueLL<int>();
+            Console.WriteLine("Test queue implementation with array\n");
+            TestQueue(queue);
+
+            Console.WriteLine("Test queue implementation with linked list\n");
+            TestQueue(queuell);
+
+            //test stack
+            Console.WriteLine();
+            var stack = new Stack.Stack<int>();
+            var stackll = new StackLL<int>();
+            Console.WriteLine("Test stack implementation with array\n");
+            TestStack(stack);
+
+            Console.WriteLine("Test stack implementation with linked list\n");
+            TestStack(stackll);
+
         }
 
         static void TestQueue(IQueue<int> queue)
@@ -95,6 +103,7 @@
 
             stackll.Clear();
             Console.WriteLine("should be true:{0}", stackll.IsEmpty());
+            Console.WriteLine();
         }
 
         static void TestLinkedList()
@@ -106,28 +115,12 @@
             linkedList.Append(4);
             linkedList.Append(5);
             linkedList.PrettyPrint();
-            Console.WriteLine();
-            Console.WriteLine("--------------------------------");
+            linkedList.Prepend(0);
+            linkedList.PrettyPrint();
             linkedList.Remove(4);
             linkedList.PrettyPrint();
             linkedList.RemoveAt(2);
-            Console.WriteLine();
-            Console.WriteLine("--------------------------------");
             linkedList.PrettyPrint();
-            linkedList.RemoveAt(1);
-            Console.WriteLine();
-            Console.WriteLine("--------------------------------");
-            linkedList.PrettyPrint();
-            linkedList.RemoveAt(1);
-            Console.WriteLine();
-            Console.WriteLine("--------------------------------");
-            linkedList.PrettyPrint();
-
-            linkedList.RemoveAt(0);
-            Console.WriteLine();
-            Console.WriteLine("--------------------------------");
-            linkedList.PrettyPrint();
-
         }
 
         static void TestGraph()

@@ -64,6 +64,7 @@ namespace DataStructures.LinkedList
                 Console.Write(string.Format("{0} -> ", current.Next.Value));
                 current = current.Next;
             }
+            Console.WriteLine();
         }
 
 
