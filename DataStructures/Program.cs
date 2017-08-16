@@ -10,22 +10,23 @@
     {
         static void Main(string[] args)
         {
-            var queue = new Queue<int>();
-            var queuell = new QueueLL<int>();
-            Console.WriteLine("Test queue implementation with array");
-            TestQueue(queue);
-            Console.WriteLine();
-            Console.WriteLine("Test queue implementation with linked list");
-            TestQueue(queuell);
+            //var queue = new Queue<int>();
+            //var queuell = new QueueLL<int>();
+            //Console.WriteLine("Test queue implementation with array");
+            //TestQueue(queue);
+            //Console.WriteLine();
+            //Console.WriteLine("Test queue implementation with linked list");
+            //TestQueue(queuell);
 
-            Console.WriteLine();
-            var stack = new Stack.Stack<int>();
-            var stackll = new StackLL<int>();
-            Console.WriteLine("Test stack implementation with array");
-            TestStack(stack);
-            Console.WriteLine();
-            Console.WriteLine("Test stack implementation with linked list");
-            TestStack(stackll);
+            //Console.WriteLine();
+            //var stack = new Stack.Stack<int>();
+            //var stackll = new StackLL<int>();
+            //Console.WriteLine("Test stack implementation with array");
+            //TestStack(stack);
+            //Console.WriteLine();
+            //Console.WriteLine("Test stack implementation with linked list");
+            //TestStack(stackll);
+            TestLinkedList();
         }
 
         static void TestQueue(IQueue<int> queue)
@@ -113,6 +114,20 @@
             Console.WriteLine();
             Console.WriteLine("--------------------------------");
             linkedList.PrettyPrint();
+            linkedList.RemoveAt(1);
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------");
+            linkedList.PrettyPrint();
+            linkedList.RemoveAt(1);
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------");
+            linkedList.PrettyPrint();
+
+            linkedList.RemoveAt(0);
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------");
+            linkedList.PrettyPrint();
+
         }
 
         static void TestGraph()

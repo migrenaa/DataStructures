@@ -51,7 +51,10 @@ namespace DataStructures.LinkedList
         public void PrettyPrint()
         {
             if (this.IsEmpty())
+            {
                 Console.WriteLine("The List is empty.");
+                return;
+            }
 
             var current = head;
             Console.Write(string.Format("{0} -> ", current.Value));
@@ -74,6 +77,7 @@ namespace DataStructures.LinkedList
             //we are changing the head to be the next one
             if (position == 0)
             {
+                //head.Value = default(T);
                 head = head.Next;
                 return;
             }
@@ -82,7 +86,7 @@ namespace DataStructures.LinkedList
             
             //iterating to the position of the element that we want to remove
             //we are iterating through the 'next' of the current, this is why the loop has last value of position - 1
-            for (int currentPosition = 0; currentPosition < position - 1; currentPosition++)
+            for (int currentPosition = 1; currentPosition < position - 1; currentPosition++)
             {
                 if (current.Next == null)
                     return;
