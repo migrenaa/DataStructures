@@ -11,22 +11,27 @@
     {
         static void Main(string[] args)
         {
+            //TestGraph();
+            //TestTree();
             TestHashTable();
         }
 
         static void TestHashTable()
         {
-            HashTable.HashTable<string, string> hash = new HashTable.HashTable<string, string>(20);
+            HashTable.HashTable<string, string> hash = new HashTable.HashTable<string, string>(17);
 
             hash.Add("1", "item 1");
             hash.Add("2", "item 2");
-            hash.Add("dsfdsdsd", "sadsadsadsad");
+            hash.Add("hola", "amigo");
 
             string one = hash.Find("1");
+            Console.WriteLine("should be item 1: {0}", one);
             string two = hash.Find("2");
-            string dsfdsdsd = hash.Find("dsfdsdsd");
+            Console.WriteLine("should be item 2: {0}", two);
+            string amigo = hash.Find("hola");
+            Console.WriteLine("should be amigo: {0}", amigo);
             hash.Remove("1");
-            Console.ReadLine();
+            var k = hash.Find("1");
         }
         static void TestTree()
         {
@@ -139,12 +144,15 @@
             node0.AddEdge(node2);
             var neighbors = new List<Graph.Node<int>> { node0, node2, node3 };
             var newNode = graph.AddNode(1, neighbors);
-            Console.WriteLine("-------BFS-------");
-            graph.BFS(newNode);
-            Console.WriteLine("-----------------");
+            var secondNode = graph.AddNode(2, new List<DataStructures.Graph.Node<int>> { node5 });
+            //Console.WriteLine("-------BFS-------");
+            //graph.BFS(newNode);
+            //Console.WriteLine("-----------------");
+            Console.WriteLine("Before remove:");
             Console.WriteLine(graph.ToString());
             graph.RemoveNode(newNode);
             Console.WriteLine("-----------------");
+            Console.WriteLine("After remove:");
             var graphToString = graph.ToString();
             Console.WriteLine(graphToString == "" ? "The Graph is empty" : graphToString);
         }

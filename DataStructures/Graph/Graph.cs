@@ -7,11 +7,11 @@ namespace DataStructures.Graph
 {
     public class Graph<T> : IGraph<T>
     {
-        private DataStructures.LinkedList.LinkedList<Node<T>> nodes;
+        private List<Node<T>> nodes;
 
         public Graph()
         {
-            nodes = new DataStructures.LinkedList.LinkedList<Node<T>>();
+            nodes = new List<Node<T>>();
         }
 
         public Node<T> AddNode(T value, List<Node<T>> neighbours = null)
@@ -21,7 +21,7 @@ namespace DataStructures.Graph
             {
                 neighbour.AddEdge(newNode);
             }
-            this.nodes.Append(newNode);
+            this.nodes.Add(newNode);
             return newNode;
         }
 
@@ -79,12 +79,9 @@ namespace DataStructures.Graph
         public override string ToString()
         {
             var stringBuilder = new StringBuilder();
-            int i = 1;
-            var current = this.nodes.GetElement(0);
-            while (!EqualityComparer<T>.Default.Equals(current.Value, default(T)))
+            foreach (var node in nodes)
             {
-                stringBuilder.Append(this.nodes.GetElement(i).ToString());
-                i++;
+                stringBuilder.Append(node.ToString());
             }
             return stringBuilder.ToString();
         }

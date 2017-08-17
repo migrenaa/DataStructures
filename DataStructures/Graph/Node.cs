@@ -40,7 +40,8 @@ namespace DataStructures.Graph
         public override string ToString()
         {
             var neighbors = ToStringMany(this.Neighbors);
-            var node = string.Format("current node value: {0},{1} current node neighbors: {2}", this.Value, Environment.NewLine, neighbors == string.Empty ? "no neighbors" : neighbors);
+            var node = string.Format("current node value: {0},{1}current node neighbors: {1}{2}{1}{3}{1}", this.Value, Environment.NewLine, neighbors == string.Empty ? "no neighbors" : neighbors, "----------------------");
+
             return node;
         }
 

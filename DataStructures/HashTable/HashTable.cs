@@ -14,15 +14,15 @@ namespace DataStructures.HashTable
     public class HashTable<K, V>
     {
         private readonly int size;
-        private readonly LinkedList.LinkedList<KeyValue<K, V>>[] items;
+        private readonly List<KeyValue<K, V>>[] items;
 
         public HashTable(int size)
         {
             this.size = size;
-            items = new LinkedList.LinkedList<KeyValue<K, V>>[size];
+            items = new List<KeyValue<K, V>>[size];
         }
 
-        protected int GetArrayPosition(K key)
+        private int GetArrayPosition(K key)
         {
             int position = key.GetHashCode() % size;
             return Math.Abs(position);
@@ -31,11 +31,10 @@ namespace DataStructures.HashTable
         public V Find(K key)
         {
             int position = GetArrayPosition(key);
-            LinkedList.LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
+            List<KeyValue<K, V>> list = GetList(position);
 
-            for (int i = 0; i < linkedList.Size(); i++)
+            foreach (var item in list)
             {
-                var item = linkedList.GetElement(i);
                 if (item.Key.Equals(key))
                 {
                     return item.Value;
@@ -47,20 +46,19 @@ namespace DataStructures.HashTable
         public void Add(K key, V value)
         {
             int position = GetArrayPosition(key);
-            LinkedList.LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
+            List<KeyValue<K, V>> list = GetList(position);
             KeyValue<K, V> item = new KeyValue<K, V>() { Key = key, Value = value };
-            linkedList.Append(item);
+            list.Add(item);
         }
 
         public void Remove(K key)
         {
             int position = GetArrayPosition(key);
-            LinkedList.LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
+            List<KeyValue<K, V>> list = GetList(position);
             bool itemFound = false;
             KeyValue<K, V> foundItem = default(KeyValue<K, V>);
-            for (int i = 0; i < linkedList.Size(); i++)
+            foreach (var item in list)
             {
-                var item = linkedList.GetElement(i);
                 if (item.Key.Equals(key))
                 {
                     itemFound = true;
@@ -70,19 +68,19 @@ namespace DataStructures.HashTable
 
             if (itemFound)
             {
-                linkedList.Remove(foundItem);
+                list.Remove(foundItem);
             }
         }
 
-        protected LinkedList.LinkedList<KeyValue<K, V>> GetLinkedList(int position)
+        protected List<KeyValue<K, V>> GetList(int position)
         {
-            LinkedList.LinkedList<KeyValue<K, V>> linkedList = items[position];
-            if (linkedList == null)
+            List<KeyValue<K, V>> list = items[position];
+            if (list == null)
             {
-                linkedList = new LinkedList.LinkedList<KeyValue<K, V>>();
-                items[position] = linkedList;
+                list = new List<KeyValue<K, V>>();
+                items[position] = list;
             }
-            return linkedList;
+            return list;
         }
     }
 }

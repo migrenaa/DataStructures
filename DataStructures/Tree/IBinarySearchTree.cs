@@ -9,5 +9,6 @@ namespace DataStructures.Tree
         Node<T> GetRootNode();
         void Print();
         Node<T> Search(Node<T> _root, T value);
+        //Node<T> FindMin(Node<T> minNode, Node<T> value);
     }
 }

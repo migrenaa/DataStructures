@@ -18,7 +18,7 @@ namespace DataStructures.Tree
         {
             return this.root.data;
         }
-        
+
         public Node<T> Insert(Node<T> root, T value)
         {
             if (root == null)
@@ -34,7 +34,7 @@ namespace DataStructures.Tree
                 root.right = Insert(root.right, value);
             return root;
         }
-        
+
         public Node<T> Search(Node<T> _root, T value)
         {
             if (_root == null)
@@ -49,12 +49,11 @@ namespace DataStructures.Tree
                 return Search(_root.right, value);
         }
 
-
         public Node<T> GetRootNode()
         {
             return this.root;
         }
-       
+
 
         public void Print()
         {
