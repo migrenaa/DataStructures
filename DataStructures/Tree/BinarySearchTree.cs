@@ -35,6 +35,18 @@ namespace DataStructures.Tree
             return root;
         }
 
+        public Node<T> FindMin(Node<T> node)
+        {
+            var current = node;
+
+            //loop down to find the leftmost leaf 
+            while (current.left != null)
+            {
+                current = current.left;
+            }
+            return (current);
+        }
+
         public Node<T> Search(Node<T> _root, T value)
         {
             if (_root == null)
@@ -54,6 +66,61 @@ namespace DataStructures.Tree
             return this.root;
         }
 
+
+        private Node<T> DeleteN(Node<T> root, Node<T> deleteNode)
+        {
+            if (root == null)
+            {
+                return root;
+            }
+            var comparerRes = Comparer<T>.Default.Compare(deleteNode.data, root.data);
+            if (comparerRes < 0)
+            {
+                root.left = DeleteN(root.left, deleteNode);
+            }
+            else if (comparerRes > 0)
+            {
+                root.right = DeleteN(root.right, deleteNode);
+            }
+            else
+            {
+                //No child nodes
+                if (root.left == null && root.right == null)
+                {
+                    root = null;
+                    return root;
+                }
+                //No left child
+                else if (root.left == null)
+                {
+                    Node<T> temp = root;
+                    root = root.right;
+                    temp = null;
+                }
+                //No right child
+                else if (root.right == null)
+                {
+                    Node<T> temp = root;
+                    root = root.left;
+                    temp = null;
+                }
+                //Has both child nodes
+                else
+                {
+                    Node<T> min = FindMin(root.right);
+                    root.data = min.data;
+                    root.right = DeleteN(root.right, min);
+                }
+            }
+            return root;
+        }
+
+        //Public method with arg: int value of node to be deleted
+        public void DeleteNode(T x)
+        {
+            Node<T> deleteNode = new Node<T>(x);
+            DeleteN(root, deleteNode);
+        }
 
         public void Print()
         {
