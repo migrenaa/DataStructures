@@ -11,9 +11,8 @@
     {
         static void Main(string[] args)
         {
-            //TestGraph();
-            TestTree();
-            //TestHashTable();
+
+            TestArrayAlgorithms();
         }
 
         static void TestHashTable()
@@ -42,10 +41,10 @@
             tree.Insert(tree.GetRootNode(), 8);
             tree.Insert(tree.GetRootNode(), 9);
             tree.Insert(tree.GetRootNode(), 0);
-            //Console.WriteLine(tree.FindMin(tree.GetRootNode()).data);
+            Console.WriteLine(tree.FindMin(tree.GetRootNode()).data);
             tree.Print();
             tree.DeleteNode(10);
-            //tree.Print();
+            tree.Print();
             //Console.WriteLine(tree.Search(tree.GetRootNode(), 9).data);
         }
 
@@ -158,6 +157,30 @@
             Console.WriteLine("After remove:");
             var graphToString = graph.ToString();
             Console.WriteLine(graphToString == "" ? "The Graph is empty" : graphToString);
+        }
+
+        static void TestArrayAlgorithms()
+        {
+            int[] array = new int[]
+              {
+                    1,2,8,9,10,11,12,111,3,4,5,6,7
+              };
+
+            //var sorted = SortingAlgorithms.Sort.BubbleSort(array);
+            //var sorted = SortingAlgorithms.Sort.InsertionSort(array);
+            var sorted = SortingAlgorithms.Sort.SelectSort(array);
+            SortingAlgorithms.Sort.MergeSort(array);
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write("{0}, ", array[i]);
+            }
+                
+            Console.WriteLine();
+            var resultIt = SortingAlgorithms.Sort.IterativeBinarySearch(sorted, 111);
+            var resultRe = SortingAlgorithms.Sort.RecursiveBinarySearch(sorted, 111);
+            Console.WriteLine("should be 111: {0}", resultIt);
+            Console.WriteLine("should be 111: {0}", resultRe);
         }
 
     }

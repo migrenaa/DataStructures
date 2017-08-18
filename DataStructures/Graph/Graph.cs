@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace DataStructures.Graph
+﻿namespace DataStructures.Graph
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+
+
     public class Graph<T> : IGraph<T>
     {
         private List<Node<T>> nodes;

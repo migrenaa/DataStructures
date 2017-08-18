@@ -1,10 +1,9 @@
-﻿using DataStructures.Queue;
-using System.Collections.Generic;
-using System.Linq;
-using System;
-
+﻿
 namespace DataStructures.Queue
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
 
     /// <summary>
     /// Representation of queue using List

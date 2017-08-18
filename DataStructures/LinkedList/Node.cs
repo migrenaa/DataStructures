@@ -1,9 +1,10 @@
 ﻿
-using System;
-using System.Collections.Generic;
-
 namespace DataStructures.LinkedList
 {
+    using System;
+    using System.Collections.Generic;
+
+
     public class Node<T>
     {
         public T Value { get; set; }

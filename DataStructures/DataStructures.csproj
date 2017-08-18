@@ -54,6 +54,7 @@
     <Compile Include="Queue\IQueue.cs" />
     <Compile Include="Queue\Queue.cs" />
     <Compile Include="Queue\QueueLL.cs" />
+    <Compile Include="SortingAlgorithms\Sort.cs" />
     <Compile Include="Stack\IStack.cs" />
     <Compile Include="Stack\Stack.cs" />
     <Compile Include="Stack\StackLL.cs" />

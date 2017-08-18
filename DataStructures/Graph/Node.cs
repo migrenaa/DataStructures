@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace DataStructures.Graph
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
     public class Node<T>
     {
         public List<Node<T>> Neighbors { get; set; }
