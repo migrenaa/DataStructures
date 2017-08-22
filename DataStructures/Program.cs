@@ -166,10 +166,10 @@
                     1,2,8,9,10,11,12,111,3,4,5,6,7
               };
 
-            //var sorted = SortingAlgorithms.Sort.BubbleSort(array);
+            var sorted = SortingAlgorithms.Sort.BubbleSort(array);
             //var sorted = SortingAlgorithms.Sort.InsertionSort(array);
-            var sorted = SortingAlgorithms.Sort.SelectSort(array);
-            SortingAlgorithms.Sort.MergeSort(array);
+            //var sorted = SortingAlgorithms.Sort.SelectSort(array);
+            //var sorted = SortingAlgorithms.Sort.MergeSort(array);
 
             for (int i = 0; i < array.Length; i++)
             {
@@ -177,8 +177,8 @@
             }
                 
             Console.WriteLine();
-            var resultIt = SortingAlgorithms.Sort.IterativeBinarySearch(sorted, 111);
-            var resultRe = SortingAlgorithms.Sort.RecursiveBinarySearch(sorted, 111);
+            var resultIt = SortingAlgorithms.Sort.IterativeBinarySearch(sorted, 12);
+            var resultRe = SortingAlgorithms.Sort.RecursiveBinarySearch(sorted, 12);
             Console.WriteLine("should be 111: {0}", resultIt);
             Console.WriteLine("should be 111: {0}", resultRe);
         }

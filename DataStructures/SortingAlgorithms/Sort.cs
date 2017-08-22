@@ -1,33 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace DataStructures.SortingAlgorithms
 {
+    using System.Linq;
     public static class Sort
     {
-        public static int? IterativeBinarySearch(int[] source, int value)
+        //lg(N) where N is the length of the arrar
+        public static int IterativeBinarySearch(int[] array, int value)
         {
-            if (source.Count() == 0)
-                return null;
+            if (array.Count() == 0)
+                return -1;
 
             int left = 0;
-            int right = source.Count();
+            int right = array.Count();
             while (left < right)
             {
-                int middle = (left + right) / 2;
+                int middle = left + (right - left) / 2;
 
-                if (source[middle] == value)
-                    return source[middle];
-                else if (source[middle] > value)
+                if (array[middle] == value)
+                    return middle;
+                else if (array[middle] > value)
                     right = middle - 1;
-                else if (source[middle] < value)
+                else if (array[middle] < value)
                     left = middle + 1;
             }
-            return null;
+            return -1;
         }
+
+        //O(n) = lg(N) where N is the length of the arrar
         public static int? RecursiveBinarySearch(int[] source, int value)
         {
             if (source.Count() == 0)
@@ -50,6 +50,7 @@ namespace DataStructures.SortingAlgorithms
             return null;
         }
 
+        //O(n) = array.length^2
         public static int[] BubbleSort(int[] array)
         {
             int temp = 0;
@@ -69,6 +70,7 @@ namespace DataStructures.SortingAlgorithms
             return array;
         }
 
+        //O(n) = nlong(n) where n is the length of the array
         public static int[] InsertionSort(int[] array)
         {
 
@@ -91,6 +93,7 @@ namespace DataStructures.SortingAlgorithms
             return array;
         }
 
+        //O(n) = nlong(n) where n is the length of the array
         public static int[] SelectSort(int[] array)
         {
             int minPos, temp;
@@ -118,73 +121,45 @@ namespace DataStructures.SortingAlgorithms
             }
             return array;
         }
-        
 
-        public static void MergeSort(int[] input)
+
+        //O(n) = nlong(n) where n is the length of the array
+        public static int[] MergeSort(int[] array)
         {
-            MergeSort(input, 0, input.Length - 1);
+            var tmp = new int[array.Length];
+            MergeSort(array, tmp, 0, array.Length - 1);
+            return array;
+        }
+        private static void MergeSort(int[] input, int[] tmp, int low, int high)
+        {
+            if (high < low) return;
+            int middle = low + (high - low) / 2;
+            MergeSort(input, tmp, low, middle);
+            MergeSort(input, tmp, middle + 1, high);
+            Merge(input, tmp, low, middle, high);
         }
 
-
-        private static void MergeSort(int[] input, int low, int high)
+        private static void Merge(int[] array, int[] tmp, int low, int middle, int high)
         {
-            if (low < high)
+            for (int k = 0; k < array.Length; k++)
             {
-                int middle = (low / 2) + (high / 2);
-                MergeSort(input, low, middle);
-                MergeSort(input, middle + 1, high);
-                Merge(input, low, middle, high);
+                tmp[k] = array[k];
             }
-        }
 
-        private static void Merge(int[] input, int low, int middle, int high)
-        {
+            int i = low;
+            int j = middle + 1;
 
-            int left = low;
-            int right = middle + 1;
-            int[] tmp = new int[(high - low) + 1];
-            int tmpIndex = 0;
-
-            while ((left <= middle) && (right <= high))
+            for (int k = low; k <= high; k++)
             {
-                if (input[left] < input[right])
-                {
-                    tmp[tmpIndex] = input[left];
-                    left = left + 1;
-                }
+                if (j > middle)
+                    array[k] = tmp[j++];
+                else if (j > high)
+                    array[k] = tmp[i++];
+                else if (tmp[j] < tmp[i])
+                    array[k] = tmp[j++];
                 else
-                {
-                    tmp[tmpIndex] = input[right];
-                    right = right + 1;
-                }
-                tmpIndex = tmpIndex + 1;
+                    array[k] = tmp[i++];
             }
-
-            if (left <= middle)
-            {
-                while (left <= middle)
-                {
-                    tmp[tmpIndex] = input[left];
-                    left = left + 1;
-                    tmpIndex = tmpIndex + 1;
-                }
-            }
-
-            if (right <= high)
-            {
-                while (right <= high)
-                {
-                    tmp[tmpIndex] = input[right];
-                    right = right + 1;
-                    tmpIndex = tmpIndex + 1;
-                }
-            }
-
-            for (int i = 0; i < tmp.Length; i++)
-            {
-                input[low + i] = tmp[i];
-            }
-
         }
     }
 }
