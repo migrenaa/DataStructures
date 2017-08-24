@@ -166,8 +166,8 @@
                     1,2,8,9,10,11,12,111,3,4,5,6,7
               };
 
-            var sorted = SortingAlgorithms.Sort.BubbleSort(array);
-            //var sorted = SortingAlgorithms.Sort.InsertionSort(array);
+            //var sorted = SortingAlgorithms.Sort.BubbleSort(array);
+            var sorted = SortingAlgorithms.Sort.InsertionSort(array);
             //var sorted = SortingAlgorithms.Sort.SelectSort(array);
             //var sorted = SortingAlgorithms.Sort.MergeSort(array);
 

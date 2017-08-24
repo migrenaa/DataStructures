@@ -75,7 +75,7 @@ namespace DataStructures.SortingAlgorithms
         {
             for (int i = 1; i < array.Count(); i++)
             {
-                for (int j = i; j < array.Count(); j--)
+                for (int j = i; j > 0; j--)
                 {
                     if (array[j - 1] > array[j])
                     {
