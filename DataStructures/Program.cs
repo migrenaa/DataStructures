@@ -179,8 +179,8 @@
             Console.WriteLine();
             var resultIt = SortingAlgorithms.Sort.IterativeBinarySearch(sorted, 12);
             var resultRe = SortingAlgorithms.Sort.RecursiveBinarySearch(sorted, 12);
-            Console.WriteLine("should be 111: {0}", resultIt);
-            Console.WriteLine("should be 111: {0}", resultRe);
+            Console.WriteLine("should be 11: {0}", resultIt);
+            Console.WriteLine("should be 11: {0}", resultRe);
         }
 
     }
