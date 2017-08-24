@@ -2,6 +2,7 @@
 {
     using DataStructures.Graph;
     using DataStructures.Queue;
+    using DataStructures.SortingAlgorithms;
     using DataStructures.Stack;
     using DataStructures.Tree;
     using System;
@@ -167,7 +168,7 @@
               };
 
             //var sorted = SortingAlgorithms.Sort.BubbleSort(array);
-            var sorted = SortingAlgorithms.Sort.InsertionSort(array);
+            var sorted = Sort.InsertionSort(array);
             //var sorted = SortingAlgorithms.Sort.SelectSort(array);
             //var sorted = SortingAlgorithms.Sort.MergeSort(array);
 
@@ -177,8 +178,8 @@
             }
                 
             Console.WriteLine();
-            var resultIt = SortingAlgorithms.Sort.IterativeBinarySearch(sorted, 12);
-            var resultRe = SortingAlgorithms.Sort.RecursiveBinarySearch(sorted, 12);
+            var resultIt = Search.IterativeBinarySearch(sorted, 12);
+            var resultRe = Search.RecursiveBinarySearch(sorted, 12);
             Console.WriteLine("should be 11: {0}", resultIt);
             Console.WriteLine("should be 11: {0}", resultRe);
         }
