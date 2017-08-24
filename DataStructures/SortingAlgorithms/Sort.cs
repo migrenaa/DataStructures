@@ -50,7 +50,7 @@ namespace DataStructures.SortingAlgorithms
             return null;
         }
 
-        //O(n) = array.length^2
+        //O(n) = n^2
         public static int[] BubbleSort(int[] array)
         {
             int temp = 0;
@@ -70,10 +70,9 @@ namespace DataStructures.SortingAlgorithms
             return array;
         }
 
-        //O(n) = nlong(n) where n is the length of the array
+        //O(n) = n^2 where n is the length of the array
         public static int[] InsertionSort(int[] array)
         {
-
             for (int i = 1; i < array.Count(); i++)
             {
                 int j = i;
