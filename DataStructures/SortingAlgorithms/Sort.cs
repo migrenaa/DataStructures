@@ -47,7 +47,7 @@ namespace DataStructures.SortingAlgorithms
         }
 
         //O(n) = n^2 where n is the length of the array
-        public static int[] SelectSort(int[] array)
+        public static int[] SelectionSort(int[] array)
         {
             int minPos, temp;
 
