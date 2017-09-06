@@ -5,7 +5,7 @@ namespace DataStructures.SortingAlgorithms
     using System.Linq;
     public static class Sort
     {
-        
+
         //O(n) = n^2
         public static int[] BubbleSort(int[] array)
         {
@@ -85,15 +85,22 @@ namespace DataStructures.SortingAlgorithms
         }
         private static void MergeSort(int[] input, int[] tmp, int low, int high)
         {
-            if (high < low) return;
-            int middle = low + (high - low) / 2;
+            if (high <= low) return;
+            int middle = (low + high) / 2;
+
+            // Sort the first half of the array
             MergeSort(input, tmp, low, middle);
+
+            // Sort the second half of the array
             MergeSort(input, tmp, middle + 1, high);
+
+            //Merge them.
             Merge(input, tmp, low, middle, high);
         }
 
         private static void Merge(int[] array, int[] tmp, int low, int middle, int high)
         {
+            //copy the array in temporary one.
             for (int k = 0; k < array.Length; k++)
             {
                 tmp[k] = array[k];
@@ -102,9 +109,10 @@ namespace DataStructures.SortingAlgorithms
             int i = low;
             int j = middle + 1;
 
+            //merge
             for (int k = low; k <= high; k++)
             {
-                if (j > middle)
+                if (i > middle)
                     array[k] = tmp[j++];
                 else if (j > high)
                     array[k] = tmp[i++];
