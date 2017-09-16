@@ -2,10 +2,11 @@
 
 namespace DataStructures.SortingAlgorithms
 {
+    using System;
     using System.Linq;
     public static class Sort
     {
-        
+
         //O(n) = n^2
         public static int[] BubbleSort(int[] array)
         {
@@ -47,7 +48,7 @@ namespace DataStructures.SortingAlgorithms
         }
 
         //O(n) = n^2 where n is the length of the array
-        public static int[] SelectionSort(int[] array)
+        public static int[] SelectSort(int[] array)
         {
             int minPos, temp;
 
@@ -113,6 +114,49 @@ namespace DataStructures.SortingAlgorithms
                 else
                     array[k] = tmp[i++];
             }
+        }
+
+        public static int[] QuickSort(int[] array)
+        {
+            Random rnd = new Random();
+            int[] shuffled = array.OrderBy(x => rnd.Next()).ToArray();
+            quickSort(array, 0, array.Length - 1);
+            return array;
+
+        }
+
+        private static void quickSort(int[] array, int low, int high)
+        {
+            if (high < low) return;
+            int j = Partition(array, low, high);
+            quickSort(array, low, j - 1);
+            quickSort(array, j + 1, high);
+
+        }
+
+        private static int Partition(int[] array, int low, int high)
+        {
+            int i = low;
+            int j = high + 1;
+            while (true)
+            {
+                while (array[++i] < array[low])
+                    if (i == high) break;
+                while (array[low] < array[--j])
+                    if (j == low) break;
+
+                if (i >= j) break;
+
+                var tmp = array[i];
+                array[i] = array[j];
+                array[j] = tmp;
+            }
+
+            var temp = array[low];
+            array[low] = array[j];
+            array[j] = temp;
+
+            return j;
         }
     }
 }
