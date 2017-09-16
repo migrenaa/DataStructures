@@ -164,7 +164,7 @@
         {
             int[] array = new int[]
               {
-                    1,2,8,9,10,11,12,111,3,4,5,6,7
+                    3,4,1,2,8,9,10,11,12,111,5,6,7
               };
 
             //var sorted = SortingAlgorithms.Sort.BubbleSort(array);
@@ -176,12 +176,13 @@
             {
                 Console.Write("{0}, ", array[i]);
             }
-                
+
             Console.WriteLine();
             var resultIt = Search.IterativeBinarySearch(sorted, 12);
             var resultRe = Search.RecursiveBinarySearch(sorted, 12);
             Console.WriteLine("should be 11: {0}", resultIt);
             Console.WriteLine("should be 11: {0}", resultRe);
+            Console.Read();
         }
 
     }
