@@ -180,13 +180,13 @@
             //var sorted = SortingAlgorithms.Sort.BubbleSort(array);
             //var sorted = Sort.InsertionSort(array);
             //var sorted = SortingAlgorithms.Sort.SelectSort(array);
-            var sorted = SortingAlgorithms.Sort.MergeSort(array);
-
+            //var sorted = SortingAlgorithms.Sort.MergeSort(array);
+            var sorted = SortingAlgorithms.Sort.QuickSort(array);
             for (int i = 0; i < array.Length; i++)
             {
                 Console.Write("{0}, ", array[i]);
             }
-                
+
             Console.WriteLine();
             var resultIt = Search.IterativeBinarySearch(sorted, 12);
             var resultRe = Search.RecursiveBinarySearch(sorted, 12);

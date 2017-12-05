@@ -2,6 +2,7 @@
 
 namespace DataStructures.SortingAlgorithms
 {
+    using System;
     using System.Linq;
     public static class Sort
     {
@@ -47,7 +48,7 @@ namespace DataStructures.SortingAlgorithms
         }
 
         //O(n) = n^2 where n is the length of the array
-        public static int[] SelectionSort(int[] array)
+        public static int[] SelectSort(int[] array)
         {
             int minPos, temp;
 
@@ -122,47 +123,47 @@ namespace DataStructures.SortingAlgorithms
                     array[k] = tmp[i++];
             }
         }
+
         public static int[] QuickSort(int[] array)
         {
-            QuickSort(array, 0, array.Length - 1);
+            Random rnd = new Random();
+            int[] shuffled = array.OrderBy(x => rnd.Next()).ToArray();
+            quickSort(array, 0, array.Length - 1);
             return array;
+
         }
 
-        private static void QuickSort(int[] array, int low, int high)
+        private static void quickSort(int[] array, int low, int high)
         {
-            if (high <= low) return;
+            if (high < low) return;
             int j = Partition(array, low, high);
-            QuickSort(array, low, j - 1);
-            QuickSort(array, j + 1, high);
+            quickSort(array, low, j - 1);
+            quickSort(array, j + 1, high);
+
         }
+
         private static int Partition(int[] array, int low, int high)
         {
             int i = low;
-            int j = high;
+            int j = high + 1;
             while (true)
             {
                 while (array[++i] < array[low])
-                {
-                    if (i == high)
-                        break;
-                }
-
+                    if (i == high) break;
                 while (array[low] < array[--j])
-                {
-                    if (j == low)
-                        break;
-                }
+                    if (j == low) break;
 
                 if (i >= j) break;
 
-                var temp = array[i];
+                var tmp = array[i];
                 array[i] = array[j];
-                array[j] = temp;
-
+                array[j] = tmp;
             }
-            var tmp = array[low];
+
+            var temp = array[low];
             array[low] = array[j];
-            array[j] = tmp;
+            array[j] = temp;
+
             return j;
         }
     }
