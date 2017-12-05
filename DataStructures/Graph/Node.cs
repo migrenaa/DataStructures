@@ -22,7 +22,6 @@ namespace DataStructures.Graph
             this.Neighbors = neighbors;
         }
 
-
         public void AddEdge(Node<T> vertex)
         {
             this.Neighbors.Add(vertex);
@@ -41,7 +40,7 @@ namespace DataStructures.Graph
         public override string ToString()
         {
             var neighbors = ToStringMany(this.Neighbors);
-            var node = string.Format("current node value: {0},{1}current node neighbors: {1}{2}{1}{3}{1}", this.Value, Environment.NewLine, neighbors == string.Empty ? "no neighbors" : neighbors, "----------------------");
+            var node = string.Format("node : {0},{1}neighbors: {1}{2}{1}", this.Value, Environment.NewLine, neighbors == string.Empty ? "no neighbors\n" : neighbors);
 
             return node;
         }
@@ -51,7 +50,7 @@ namespace DataStructures.Graph
             var stringBuilder = new StringBuilder();
             foreach (var node in nodes)
             {
-                stringBuilder.Append(string.Format("current node value: {0}{1}", node.Value, Environment.NewLine));
+                stringBuilder.Append(string.Format("{0}{1}", node.Value, Environment.NewLine));
             }
             return stringBuilder.ToString();
         }

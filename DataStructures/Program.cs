@@ -6,14 +6,12 @@
     using DataStructures.Stack;
     using DataStructures.Tree;
     using System;
-    using System.Collections.Generic;
 
     class Program
     {
         static void Main(string[] args)
         {
-
-            TestArrayAlgorithms();
+            TestGraph();
         }
 
         static void TestHashTable()
@@ -138,26 +136,38 @@
 
         static void TestGraph()
         {
-            Graph<int> graph = new Graph<int>();
+            var graph = new Graph<int>();
             var node0 = new Graph.Node<int>(0);
+            var node1 = new Graph.Node<int>(1);
             var node2 = new Graph.Node<int>(2);
             var node3 = new Graph.Node<int>(3);
             var node4 = new Graph.Node<int>(4);
             var node5 = new Graph.Node<int>(5);
-            node0.AddEdge(node2);
-            var neighbors = new List<Graph.Node<int>> { node0, node2, node3 };
-            var newNode = graph.AddNode(1, neighbors);
-            var secondNode = graph.AddNode(2, new List<DataStructures.Graph.Node<int>> { node5 });
-            //Console.WriteLine("-------BFS-------");
-            //graph.BFS(newNode);
-            //Console.WriteLine("-----------------");
-            Console.WriteLine("Before remove:");
-            Console.WriteLine(graph.ToString());
-            graph.RemoveNode(newNode);
-            Console.WriteLine("-----------------");
-            Console.WriteLine("After remove:");
-            var graphToString = graph.ToString();
-            Console.WriteLine(graphToString == "" ? "The Graph is empty" : graphToString);
+
+            node0.AddEdge(node1);
+            node1.AddEdge(node3);
+            node1.AddEdge(node2);
+            node5.AddEdge(node4);
+            node2.AddEdge(node5);
+
+            graph.AddNode(node0);
+            graph.AddNode(node1);
+            graph.AddNode(node2);
+            graph.AddNode(node3);
+            graph.AddNode(node4);
+            graph.AddNode(node5);
+
+            graph.BFS(node1);
+            Console.WriteLine();
+            graph.DFS(node1);
+
+            //Console.WriteLine("Before removing node 1: ");
+            //Console.WriteLine(graph.ToString());
+            //graph.RemoveNode(node1);
+            //Console.WriteLine("--------------------");
+            //Console.WriteLine("After removing node 1: ");
+            //Console.WriteLine(graph.ToString());
+
         }
 
         static void TestArrayAlgorithms()
@@ -184,6 +194,5 @@
             Console.WriteLine("should be 11: {0}", resultRe);
             Console.Read();
         }
-
     }
 }

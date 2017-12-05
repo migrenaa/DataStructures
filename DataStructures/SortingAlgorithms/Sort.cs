@@ -122,5 +122,48 @@ namespace DataStructures.SortingAlgorithms
                     array[k] = tmp[i++];
             }
         }
+        public static int[] QuickSort(int[] array)
+        {
+            QuickSort(array, 0, array.Length - 1);
+            return array;
+        }
+
+        private static void QuickSort(int[] array, int low, int high)
+        {
+            if (high <= low) return;
+            int j = Partition(array, low, high);
+            QuickSort(array, low, j - 1);
+            QuickSort(array, j + 1, high);
+        }
+        private static int Partition(int[] array, int low, int high)
+        {
+            int i = low;
+            int j = high;
+            while (true)
+            {
+                while (array[++i] < array[low])
+                {
+                    if (i == high)
+                        break;
+                }
+
+                while (array[low] < array[--j])
+                {
+                    if (j == low)
+                        break;
+                }
+
+                if (i >= j) break;
+
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+
+            }
+            var tmp = array[low];
+            array[low] = array[j];
+            array[j] = tmp;
+            return j;
+        }
     }
 }

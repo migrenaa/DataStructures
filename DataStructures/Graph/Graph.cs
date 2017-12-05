@@ -26,8 +26,19 @@
             return newNode;
         }
 
+        public Node<T> AddNode(Node<T> node)
+        {
+            this.nodes.Add(node);
+            return node;
+        }
+
         public void RemoveNode(Node<T> node)
         {
+            var neighbours = this.nodes.Where(x => x.Neighbors.Contains(node));
+            foreach (var neighbour in neighbours)
+            {
+                neighbour.RemoveEdge(node);
+            }
             this.nodes.Remove(node);
         }
 
@@ -46,7 +57,7 @@
                     queue.Enqueue(neighbor);
                 }
                 //DO SOMETHING WITH THE CURRENT NODE
-                Console.WriteLine(current.ToString());
+                Console.WriteLine($"{current.Value} => ");
             }
         }
 
@@ -60,7 +71,6 @@
             {
                 var current = stack.Pop();
 
-                //maha primki
                 if (visited.Contains(current))
                     continue;
 
@@ -73,7 +83,7 @@
                     stack.Push(neighbour);
 
                 //DO SOMETHING 
-                current.ToString();
+                Console.WriteLine($"{current.Value} => ");
             }
         }
 
